@@ -6,8 +6,8 @@ let numOfFiles = document.getElementById("num-of-files");
 
 function preview() {
   imageContainer.innerHTML = "";
-  numOfFiles.textContent = `${fileInput.files.length} Files Selected`;
   for (let i of fileInput.files) {
+    numOfFiles.textContent = `${fileInput.files.length} Files Selected`;
     let reader = new FileReader();
     let figure = document.createElement("figure");
     let figCaption = document.createElement("figcaption");
@@ -30,6 +30,7 @@ function preview() {
     removeBtn.addEventListener("click", function (e) {
       let removedItem = e.target.parentNode.classList.add("remove");
       source = document.querySelectorAll(".remove img")[0].getAttribute("src");
+      console.log(source);
       e.target.parentNode.parentNode.removeChild(e.target.parentNode);
     });
   }
