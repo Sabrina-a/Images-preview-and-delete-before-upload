@@ -26,19 +26,13 @@ function preview() {
     imageContainer.appendChild(figure);
 
     reader.readAsDataURL(i);
+    //remove image
     removeBtn.addEventListener("click", function (e) {
-      console.log(e.target.parentNode);
-      console.log(e.target.parentNode.parentNode);
-
+      let removedItem = e.target.parentNode.classList.add("remove");
+      source = document.querySelectorAll(".remove img")[0].getAttribute("src");
       e.target.parentNode.parentNode.removeChild(e.target.parentNode);
     });
   }
 }
 
 fileInput.addEventListener("change", preview);
-
-function BtnRemoveImg() {
-  removeBtn.addEventListener("click", function (e) {
-    console.log(e.target);
-  });
-}
